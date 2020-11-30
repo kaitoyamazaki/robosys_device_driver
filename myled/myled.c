@@ -1,4 +1,4 @@
-#include <linuc/module.h>
+#include <linux/module.h>
 
 static int __init init_mod(void)
 {
