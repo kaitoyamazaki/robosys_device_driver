@@ -3,6 +3,7 @@
 #include <linux/cdev.h>
 #include <linux/device.h>
 #include <linux/uaccess.h>
+#include <linux/io.h>
 
 MODULE_AUTHOR("Kaito Yamazaki");
 MODULE_DESCRIPTION("driver for LED control");
@@ -12,6 +13,7 @@ MODULE_VERSION("0.0.1");
 static dev_t dev;
 static struct cdev cdv;
 static struct class *cls = NULL;
+static volatile u32 *gpio_base = NULL;
 
 static ssize_t led_write(struct file* filp, const char* buf, size_t count, loff_t* pos)
 {
@@ -65,6 +67,9 @@ static int __init init_mod(void)
 	}
 
 	device_create(cls,NULL,dev,NULL, "myled%d", MINOR(dev));
+	
+	gpio_base = ioremap_nocache(0xfe200000,0xA0);
+
 	return 0;
 }
 
