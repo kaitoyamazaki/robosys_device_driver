@@ -5,7 +5,7 @@
 ロボットシステム学の課題で作ったものです。 LEDを点灯、消灯するデバイスドライバーを作成しました。
 
 # 実行方法
-    $ git clone https://github.com/yuyakobayashi7/robosys_device_driver.git
+    $ git clone 
     $ cd robosys_device_driver
     $ make
     $ sudo insmod myled.ko
@@ -13,7 +13,7 @@
     
 
 # 映像
-     $sasasas
+     $ test
 
 # 説明
 
