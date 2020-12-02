@@ -8,7 +8,8 @@
 #include <linux/device.h>
 #include <linux/uaccess.h>
 #include <linux/io.h>
-#include <linux/timer.h>
+#include <linux/delay.h>
+//#include <linux/timer.h>
 
 
 MODULE_AUTHOR("Kaito Yamazaki");
@@ -20,34 +21,43 @@ static dev_t dev;
 static struct cdev cdv;
 static struct class *cls = NULL;
 static volatile u32 *gpio_base = NULL;
-
-static timer_list timer;
-static timer_list timer2;
-
-char time = 1;
-char flag = 1;
-int iter = 0;
-char mode;
+static int led_number[2] = {24,25};
 
 static ssize_t led_write(struct file* filp, const char* buf, size_t count, loff_t* pos)
 {
 	char c;
+	int i;
 	if(copy_from_user(&c,buf,sizeof(char)))
 		return -EFAULT;
 
-//	printk(KERN_INFO "receive %c\n", c);
 	if(c == '0'){
 		gpio_base[10] = 1 << 25;
+		gpio_base[10] = 1 << 24;
 	}else if(c == '1'){
 		gpio_base[7] = 1 << 25;
-	}
+		gpio_base[7] = 1 << 24;
+	}else if(c == '2'){
+		gpio_base[7] = 1 << 24;
+	}else if(c == '3'){
+		gpio_base[7] = 1 << 25;
+	}/*else if(c == '4'){
+		for(i=0; i < 10; i++){
+			gpio_base[7] = 1 << 24;
+			gpio_base[7] = 1 << 25;
+			ssleep(2/i);
+
+			gpio_base[10] = 1 << 24;
+			gpio_base[10] = 1 << 25;
+			ssleep(2/i)+
+		}*/
+		
         return 1;
 }
 
 static ssize_t sushi_read(struct file* filp, char* buf, size_t count, loff_t* pos)
 {
 	int size = 0;
-	char sushi[] = {0xF0,0x9F,0x8D,0xA3,0x0A};
+	char sushi[] = {0xF0,0x9F,0x8D,0xA3,0x0A};//寿司の絵文字のバイナリ
 	if(copy_to_user(buf+size, (const char *)sushi, sizeof(sushi))){
 		printk( KERN_INFO "sushi : copy_to_user failed\n");
 		return -EFAULT;
@@ -65,6 +75,7 @@ static struct file_operations led_fops = {
 static int __init init_mod(void)
 {
 	int retval;
+	int i;
 	retval =  alloc_chrdev_region(&dev, 0, 1, "myled");
 	if(retval < 0){
 		printk(KERN_ERR "alloc_chrdev_region failed.\n");
@@ -88,13 +99,14 @@ static int __init init_mod(void)
 	device_create(cls,NULL,dev,NULL, "myled%d", MINOR(dev));
 	
 	gpio_base = ioremap_nocache(0xfe200000,0xA0);
-
-	const u32 led = 25;
-	const u32 index = led/10;
-	const u32 shift = (led%10)*3;
-	const u32 mask = ~(0x7<<shift);
-	gpio_base[index] = (gpio_base[index] & mask ) | (0x1 << shift);
-
+	
+	for (i = 0; i < 3; i++){
+		const u32 led = led_number[i];
+		const u32 index = led/10;
+		const u32 shift = (led%10)*3;
+		const u32 mask = ~(0x7<<shift);
+		gpio_base[index] = (gpio_base[index] & mask ) | (0x1 << shift);
+	}
 	return 0;
 }
 
