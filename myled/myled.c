@@ -26,7 +26,8 @@ static int led_number[2] = {24,25};
 static ssize_t led_write(struct file* filp, const char* buf, size_t count, loff_t* pos)
 {
 	char c;
-	int i;
+	int i,k;
+	double a;
 	if(copy_from_user(&c,buf,sizeof(char)))
 		return -EFAULT;
 
@@ -40,16 +41,22 @@ static ssize_t led_write(struct file* filp, const char* buf, size_t count, loff_
 		gpio_base[7] = 1 << 24;
 	}else if(c == '3'){
 		gpio_base[7] = 1 << 25;
-	}/*else if(c == '4'){
+	}else if(c == '4'){
 		for(i=0; i < 10; i++){
-			gpio_base[7] = 1 << 24;
-			gpio_base[7] = 1 << 25;
-			ssleep(2/i);
-
 			gpio_base[10] = 1 << 24;
+			gpio_base[7] = 1 << 25;
+			a = 5 / (i + 1);
+			  ssleep(a);
 			gpio_base[10] = 1 << 25;
-			ssleep(2/i)+
-		}*/
+		          ssleep(a);
+		}	
+	}/*else if(c == '5'){
+		for(k=0; k < 10; k++){
+			gpio_base[7] = 1 << 24;
+			gpio_base[10] = 1 << 24;
+		}
+	}*/
+			
 		
         return 1;
 }
