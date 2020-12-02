@@ -1,9 +1,15 @@
+// SPDX-License-Identifier: GPL-3.0
+// (c) 2020 RyuichiUeda and kaitoyamazaki
+
+
 #include <linux/module.h>
 #include <linux/fs.h>
 #include <linux/cdev.h>
 #include <linux/device.h>
 #include <linux/uaccess.h>
 #include <linux/io.h>
+#include <linux/timer.h>
+
 
 MODULE_AUTHOR("Kaito Yamazaki");
 MODULE_DESCRIPTION("driver for LED control");
@@ -14,6 +20,14 @@ static dev_t dev;
 static struct cdev cdv;
 static struct class *cls = NULL;
 static volatile u32 *gpio_base = NULL;
+
+static timer_list timer;
+static timer_list timer2;
+
+char time = 1;
+char flag = 1;
+int iter = 0;
+char mode;
 
 static ssize_t led_write(struct file* filp, const char* buf, size_t count, loff_t* pos)
 {
