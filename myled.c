@@ -1,7 +1,23 @@
 // SPDX-License-Identifier: GPL-3.0
 // (c) 2020 RyuichiUeda and kaitoyamazaki
+/*
+ 
+### Reference ###
+rikusekiuchi
+https://github.com/rikusekiuchi/led_devicce_driver_2
 
+https://github.com/rikusekiuchi/led_devicce_driver_2/blob/master/myled.c
 
+note032
+https://github.com/note032/test_report
+
+https://github.com/note032/test_report/blob/master/myled.c
+
+yuyakobayashi7
+https://github.com/yuyakobayashi7/robosys_device_driver
+
+https://github.com/yuyakobayashi7/robosys_device_driver/blob/main/myled.c
+*/
 #include <linux/module.h>
 #include <linux/fs.h>
 #include <linux/cdev.h>
