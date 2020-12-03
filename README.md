@@ -13,7 +13,7 @@
     
 
 # 映像
-ここにYouTubeのリンク
+https://youtu.be/J0hZHpb_Kmk
 
 # 説明
 echo 0 > /dev/myled0    全てのLEDを消す。
@@ -30,8 +30,6 @@ echo 5 > /dev/myled0    1つ目のLEDを一定間隔で点滅させる
 
 echo 6 > /dev/myled0    2つのLEDを交互に点滅させる
 
-# 写真
-回路の写真を貼ろう
 # LICENSE
 This repository is licensed under the GPLv3 license
 
