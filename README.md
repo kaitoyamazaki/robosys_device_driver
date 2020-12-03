@@ -41,4 +41,4 @@ https://github.com/note032/test_report
 複数のGPIO制御と、LEDの点滅に一部コードを使用しています。
 
 https://github.com/yuyakobayashi7/robosys_device_driver
-READMEの記入に一部コードを使用しています。
+READMEの記入やライセンス等の一部コードを使用しています。
