@@ -17,11 +17,17 @@
 
 # 説明
 echo 0 > /dev/myled0    全てのLEDを消す。
+
 echo 1 > /dev/myled0    全てのLEDを光らせる。
+
 echo 2 > /dev/myled0    1つ目のLEDを光らせる
+
 echo 3 > /dev/myled0    2つ目のLEDを光らせる
+
 echo 4 > /dev/myled0    2つ目のLEDを間隔が短くなるよう点滅させる
+
 echo 5 > /dev/myled0    1つ目のLEDを一定間隔で点滅させる
+
 echo 6 > /dev/myled0    2つのLEDを交互に点滅させる
 
 # 写真
