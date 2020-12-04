@@ -7,6 +7,8 @@
 # 実行環境
 Ubuntu 20.04LTS
 
+Raspberry Pi 4
+
 
 # 実行方法
     $ git clone 
