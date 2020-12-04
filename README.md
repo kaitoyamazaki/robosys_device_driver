@@ -11,7 +11,7 @@ Raspberry Pi 4
 
 
 # 実行方法
-    $ git clone 
+    $ git clone https://github.com/kaitoyamazaki/robosys_device_driver.git
     $ cd robosys_device_driver
     $ make
     $ sudo insmod myled.ko
