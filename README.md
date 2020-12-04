@@ -1,8 +1,12 @@
 # COPYING
-(c) 2020 RyuichiUeda and kaitoyamazaki　and yuyakobayashi7 and note032 and rikusekiuchi　and fukuharayoshitaka
+(c) 2020 RyuichiUeda and kaitoyamazaki　and yuyakobayashi7 and note032 and rikusekiuchi and fukuharayoshitaka
 
 # robosys_device_driver
 ロボットシステム学の課題で作ったものです。 LEDを点灯、消灯、点滅するデバイスドライバーを作成しました。
+
+# 実行環境
+Ubuntu 20.04LTS
+
 
 # 実行方法
     $ git clone 
