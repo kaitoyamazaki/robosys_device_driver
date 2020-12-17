@@ -1,6 +1,5 @@
-/*
-# SPDX-License-Identifier: GPL-3.0
-*/
+# SPDX-License-Identifier: GPL-3.0 
+
 
 obj-m := myled.o
 
