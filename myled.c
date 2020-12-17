@@ -28,7 +28,7 @@ https://github.com/yuyakobayashi7/robosys_device_driver/blob/main/myled.c
 //#include <linux/timer.h>
 
 
-MODULE_AUTHOR("Kaito Yamazaki");
+MODULE_AUTHOR("Kaito Yamazaki and Ryuichi Ueda and rikusekiuchi and note032 and yuyakobayashi7");
 MODULE_DESCRIPTION("driver for LED control");
 MODULE_LICENSE("GPL");
 MODULE_VERSION("0.0.1");
