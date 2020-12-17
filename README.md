@@ -11,11 +11,11 @@ Raspberry Pi 4
 
 
 # 実行方法
-    $ git clone https://github.com/kaitoyamazaki/robosys_device_driver.git
-    $ cd robosys_device_driver
-    $ make
-    $ sudo insmod myled.ko
-    $ sudo chmod 666 /dev/myled0
+    $ `git clone https://github.com/kaitoyamazaki/robosys_device_driver.git`
+    $ `cd robosys_device_driver`
+    $ `make`
+    $ `sudo insmod myled.ko`
+    $ `sudo chmod 666 /dev/myled0`
     
 
 # 映像
@@ -45,4 +45,6 @@ https://github.com/note032/test_report
 複数のGPIO制御と、LEDの点滅に一部コードを使用しています。
 
 https://github.com/yuyakobayashi7/robosys_device_driver
-READMEの記入やライセンス等の一部コードを使用しています。
+READMEの記入方法やライセンス等をコードに反映させる方法を参考にしています。
+myled.cでは冒頭部分のコード作成に参考にした方々のお名前とgitのurlを貼らせていただきました。
+
