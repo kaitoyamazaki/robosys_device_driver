@@ -42,9 +42,11 @@ This repository is licensed under the GPLv3 license
 # References
 https://github.com/rikusekiuchi/led_devicce_driver_2
 https://github.com/note032/test_report
+
 複数のGPIO制御と、LEDの点滅に一部コードを使用しています。
 
 https://github.com/yuyakobayashi7/robosys_device_driver
+
 READMEの記入方法やライセンス等をコードに反映させる方法を参考にしています。
 myled.cでは冒頭部分のコード作成に参考にした方々のお名前とgitのurlを貼らせていただきました。
 
